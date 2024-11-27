@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcola dislivello del trekking</title>
+    <h1>Trekking</h1>
+<style>
+    
+    #button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+    #container1{
+        padding:20px;
+        border:1px solid black;
+        background-color: cadetblue;
+        margin:10px;
+        height: 750px;
+        width: 750px;
+
+    }
+
+    label {
+        font-size: 35px;
+    }
+
+    #scatola1{
+        background-image: url("1.jpg");
+        background-repeat: no-repeat;
+                width: 750px;
+                height: 350px;
+                border: 1px solid black;
+                margin: 5px;
+                padding: 5px;
+    }
+    #scatola2{
+        background-image: url("2.jpg");
+        background-repeat: no-repeat;
+                width: 750px;
+                height: 360px;
+                border: 1px solid black;
+                margin: 5px;
+                padding: 5px;
+    }
+</style>
+
+</head>
+<body>
+    <div id="container1">
+
+    <div id="scatola1">
+
+        <center>
+            <h2>Calcolare il dislivello del trekking</h2>
+            <label for="input1">altezza punto di partenza (m)</label>
+        <input id="input1" type="text"><br>
+        <label for="input2">altezza del punto di pausa (m) </label>
+        <input id="input2" type="text"><br>
+        <label for="input3">altezza del punto finale (m) </label>
+        <input id="input3" type="text">
+        <p>  </p>
+        <button id="button"  onclick="calcola()"> Calcola</button>
+        <p id="out1"></p>
+        </center>
+
+
+</div>
+
+<div id="scatola2">
+
+    <center>
+        
+            <h3>Calcola tempistica trekking</h3>
+            <label for="input1">Orario di partenza: </label>
+            <input id="partenzaOre" type="number"><input id="partenzaMin" type="number"><br><br>
+            <label for="input2">Cima: </label>
+        <input id="input2" type="number"><br><br>
+            <label for="input3">Orario di ritorno: </label>
+            <input id="arrivoOre" type="number"><input id="arrivoMin" type="number"><br><br>
+            <p>  </p>
+            <button onclick="calcolaTempo();" id="button">Calcola</button>
+            <p id="outTempo"></p>
+           
+       </center>
+
+
+
+</div>
+</div>
+
+   
+
+   <script>
+    function calcola(){
+
+        let i1;
+        let i2;
+        let risultato;
+        i1=document.getElementById("input1").value;
+        i2=document.getElementById("input2").value;
+        i3=document.getElementById("input3").value;
+        risultato=i1-i2,i2-i1;
+        document.getElementById("out1").innerHTML=risultato;
+    }
+    // Funzione per calcolare la differenza in minuti
+function calcolaDifferenza(ora1, minuto1, ora2, minuto2) {
+    // Converti entrambe le ore e i minuti in minuti totali
+    const minutiTotali1 = (ora1 * 60) + minuto1;
+    const minutiTotali2 = (ora2 * 60) + minuto2;
+
+    // Calcola la differenza in valore assoluto
+    const differenza = Math.abs(minutiTotali1 - minutiTotali2);
+
+    return differenza;
+}
+
+function calcolaTempo(){
+        let startOre;
+        let startMin;
+        let arrivoOre;
+        let arrivoMin;
+        let percorso;
+        let differenza;
+
+        startOre = document.getElementById("partenzaOre").value;
+        startMin = document.getElementById("partenzaMin").value;
+
+        arrivoOre = document.getElementById("arrivoOre").value;
+        arrivoMin = document.getElementById("arrivoMin").value;
+
+        if (startOre > arrivoOre) {
+            document.getElementById("outTempo").innerHTML = "L'orario inserito non è valido";
+        } else if (startMin > arrivoMin) {
+                document.getElementById("outTempo").innerHTML = "L'orario inserito non è valido";
+        } else {
+            differenza = calcolaDifferenza(startOre, startMin, arrivoOre, arrivoMin);
+            document.getElementById("outTempo").innerHTML = "La sessione di trekking è durata " + differenza + " minuti";
+        }
+    }
+    </script>
+   
+</body>
+</html>
+
