@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 650px;
+  height: 650px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+}
+</style>
+</head>
+<body>
+
+<h1>Scheda personale 2.0</h1>
+<h3>Gira l'immagine:</h3>
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="IMG_20240927_130917.jpg" alt="La mia foto" style="width:650px;height: 650px;">
+    </div>
+    <div class="flip-card-back">
+      <h1>Christian Ruggiero</h1>
+      <p>Informatico e Calciatore</p>
+      <p>Ciao io mi chiamo christian ruggiero ho 15 anni abito a nichelino e sono nato a moncalieri.Come hobby io gioco a calcio guardo la tv ed esco con gli amici.Il mio sogno sarebbe quello di diventare calciatore ma ormai si è reso impossibile ,quindi un mio traguardo sarebbe di fare l'informatico a livello professionale.Mi piacerebbe giocare nel napoli perchè è il mio sogno da quando sono bambino e io ci spero ancora.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
