@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prima lezione javascript</title>
+
+    <style>
+    #button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+#button2 {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+#button3 {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+</style>
+</head>
+<body>
+          <p>La mia prima pagina html con javascript
+             evidenzia il funzionamento degli eventi associati
+             al premere di un bottone.
+            Il comando "button" è un tag html "html"
+            Stilizzo il bottone come piace a me!
+          </p>
+
+          
+          <button id="button2" onclick="eseguiFinestra2()"> cliccami per vedere qual'è srà il mio lavoro</button>
+          <button id="button3" onclick="eseguiFinestra3()"> cliccami per vedere quello che mi voglio tatuare</button>
+
+          <button id="button" onclick="eseguiFinestra1()"> cliccami per vedere il mio sogno </button> 
+<script>
+    function eseguiFinestra1()
+    {
+        alert("ciao mi piacerebbe diventare un calciatore!");
+    }
+    function eseguiFinestra2()
+    {
+        alert("ciao mi piacerebbe diventare un informatico!")
+    }
+    function eseguiFinestra3()
+    {
+        alert("ciao mi piacerebbe tatuarmi un leone sulla coscia!")
+    }
+
+</script>
+</body>
+</html>
