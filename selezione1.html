@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selezione</title>
+</head>
+<body>
+
+    <p>
+    if (test)  restituisce o vero o falso
+{
+     1 costrutto 
+     se test == true eseguo il primo costrutto di istruzioni all’interno delle prime parentesi graffe
+}
+else   (altrimenti)
+{ 
+     2 costrutto
+     se test == false eseguo il secondo costrutto di istruzioni all’interno delle prime parentesi graffe
+}
+
+</p>
+<style>
+
+#botton1 {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+</style>
+
+<button id="botton1" onclick="inputNumero()"> Inserisci la tua età</button>
+
+<script>
+    function inputNumero(){
+       let numero = prompt("Inserisci un numero");
+       numero=Number(numero);
+//controlliamo se il numero è > o
+if (numero>0)
+{
+alert("il numero è valido")
+
+}
+else
+{
+        alert("il numero deve essere >0")
+}
+    }
+</script>
+
+    
+</body>
+</html>
