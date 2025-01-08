@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolo Valore Immobiliare</title>
+    <script>
+        function calcolaValoreImmobiliare() {
+            var citta = document.getElementById("citta").value.toLowerCase();
+            var mq = parseFloat(document.getElementById("mq").value);
+            var distanza = parseFloat(document.getElementById("distanza").value);
+            var costoBase = 0;
+            var incremento = 0;
+            var messaggio = "";
+
+            // Imposta il costo base per ciascuna città
+            if (citta === "genova") {
+                costoBase = 5000;
+            } else if (citta === "savona") {
+                costoBase = 7000;
+            } else if (citta === "imperia") {
+                costoBase = 6000;
+            } else {
+                messaggio = "Città non valida. Inserisci Genova, Savona o Imperia.";
+                document.getElementById("risultato").innerText = messaggio;
+                return;
+            }
+
+            // Calcola l'incremento in base alla distanza dal mare
+            if (distanza < 100) {
+                incremento = 3000;
+            } else if (distanza >= 100 && distanza < 500) {
+                incremento = 1500;
+            } else if (distanza >= 1000) {
+                incremento = 500;
+            }
+
+            // Calcola il valore immobiliare al metro quadro
+            var costoAlMetroQuadro = costoBase + incremento;
+
+            // Calcola il valore totale della casa
+            var valoreTotale = costoAlMetroQuadro * mq;
+
+            // Mostra il risultato
+            messaggio = "Il costo al metro quadro per la città di " + citta.charAt(0).toUpperCase() + citta.slice(1) + " è di " + costoAlMetroQuadro + " euro.";
+            messaggio += "<br>Il valore totale della casa di " + mq + " mq, a " + distanza + " km dal mare, è di " + valoreTotale + " euro.";
+            document.getElementById("risultato").innerHTML = messaggio;
+        }
+    </script>
+</head>
+<body>
+    <h2>Calcolo Valore Immobiliare</h2>
+    
+    <p>Inserisci la città (Genova, Savona o Imperia):</p>
+    <input type="text" id="citta" placeholder="Città (Genova, Savona, Imperia)">
+    
+    <p>Inserisci i metri quadrati della casa:</p>
+    <input type="number" id="mq" placeholder="Metri quadrati" min="1">
+    
+    <p>Inserisci la distanza dal mare (in km):</p>
+    <input type="number" id="distanza" placeholder="Distanza dal mare (km)" min="0">
+    
+    <button onclick="calcolaValoreImmobiliare()">Calcola il Valore</button>
+    
+    <p id="risultato"></p>
+</body>
+</html>
+
+
