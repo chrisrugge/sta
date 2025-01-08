@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <script>
+  function verificaEta() {
+            var eta = parseInt(document.getElementById("eta").value);
+            var messaggio = "";
+            
+            if (eta >= 18) {
+                messaggio = "Accedi al sistema";
+            } else {
+                var anniMancanti = 18 - eta;
+                messaggio = "Puoi accedere al sistema tra " + anniMancanti + " anni";
+            }
+            
+            document.getElementById("risultato").innerText = messaggio;
+        }
+;
+
+        </script>
+        <body>
+        <h2>Verifica Età</h2>
+        <p>Inserisci la tua età:</p>
+        <input type="number" id="eta" placeholder="Età">
+        <button onclick="verificaEta()">Verifica</button>
+        
+        <p id="risultato"></p>
+    
+</body>
+</html>
