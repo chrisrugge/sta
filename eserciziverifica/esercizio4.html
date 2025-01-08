@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcola Età e Mese di Nascita</title>
+    <script>
+        function calcolaEtaEMese() {
+            var mese = document.getElementById("mese").value;
+            var annoNascita = document.getElementById("anno").value;
+            var dataAttuale = new Date();
+            var annoCorrente = dataAttuale.getFullYear();
+            var meseCorrente = dataAttuale.getMonth() + 1; // I mesi in JavaScript partono da 0, quindi sommiamo 1
+
+            // Calcolo dell'età
+            var eta = annoCorrente - annoNascita;
+            if (meseCorrente < mese) {
+                eta--; // Se non è ancora passato il mese di compleanno
+            }
+
+            // Restituire i risultati
+            var messaggio = "Il tuo mese di nascita è " + mese + ", e hai " + eta + " anni.";
+            document.getElementById("risultato").innerText = messaggio;
+        }
+    </script>
+</head>
+<body>
+    <h2>Calcola la tua Età e il Mese di Nascita</h2>
+    <p>Inserisci il mese di nascita (numero da 1 a 12):</p>
+    <input type="number" id="mese" placeholder="Mese di nascita" min="1" max="12">
+    
+    <p>Inserisci l'anno di nascita:</p>
+    <input type="number" id="anno" placeholder="Anno di nascita" min="1900" max="2025">
+    
+    <button onclick="calcolaEtaEMese()">Calcola</button>
+    
+    <p id="risultato"></p>
+</body>
+</html>
