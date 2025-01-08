@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stima Valore Immobiliare</title>
+    <script>
+        function stimaValoreImmobiliare() {
+            var distanza = document.getElementById("distanza").value;
+            var costoMetroQuadro = 0;
+            var messaggio = "";
+
+            // Verifica la distanza dal mare e assegna il costo al metro quadro
+            if (distanza < 100) {
+                costoMetroQuadro = 10000; // Costo per distanza < 100 km
+                messaggio = "Il costo al metro quadro è di " + costoMetroQuadro + " euro.";
+            } else {
+                costoMetroQuadro = 7000; // Costo per distanza > 100 km
+                messaggio = "Il costo al metro quadro è di " + costoMetroQuadro + " euro.";
+            }
+
+            // Mostra il risultato
+            document.getElementById("risultato").innerText = messaggio;
+        }
+    </script>
+</head>
+<body>
+    <h2>Stima del Valore Immobiliare</h2>
+    <p>Inserisci la distanza dalla casa al mare (in km):</p>
+    <input type="number" id="distanza" placeholder="Distanza in km">
+    <button onclick="stimaValoreImmobiliare()">Stima il Valore</button>
+    
+    <p id="risultato"></p>
+</body>
+</html>
