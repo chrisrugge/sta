@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifica Città</title>
+    <script>
+        function verificaCitta() {
+            var citta = document.getElementById("citta").value.toLowerCase();
+            var messaggio = "";
+            
+            // Dati fittizi da sostituire con i dati reali delle popolazioni
+            var popolazioni = {
+                "torino": "Gli abitanti a Torino sono circa 870.000.",
+                "nichelino": "Gli abitanti a Nichelino sono circa 50.000.",
+                "moncalieri": "Gli abitanti a Moncalieri sono circa 58.000.",
+                "vinovo": "Gli abitanti a Vinovo sono circa 13.000.",
+                "rivoli": "Gli abitanti a Rivoli sono circa 48.000.",
+                "collegno": "Gli abitanti a Collegno sono circa 50.000.",
+                "settimo": "Gli abitanti a Settimo Torinese sono circa 48.000.",
+                "chieri": "Gli abitanti a Chieri sono circa 37.000."
+            };
+            
+            if (popolazioni[citta]) {
+                messaggio = popolazioni[citta];
+            } else {
+                messaggio = "Città non trovata. Prova con una delle seguenti: Torino, Nichelino, Moncalieri, Vinovo, Rivoli, Collegno, Settimo, Chieri.";
+            }
+            
+            document.getElementById("risultato").innerText = messaggio;
+        }
+    </script>
+</head>
+<body>
+    <h2>Verifica Città e Popolazione</h2>
+    <p>Inserisci la città dove abiti:</p>
+    <input type="text" id="citta" placeholder="Città">
+    <button onclick="verificaCitta()">Verifica</button>
+    
+    <p id="risultato"></p>
+</body>
+</html>
