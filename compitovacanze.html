@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controllo Lunghezza Stringhe</title>
+</head>
+<body>
+    <h2>Controlla se entrambe le stringhe sono più lunghe di 8 caratteri</h2>
+
+    <label for="stringa1">Stringa 1:</label>
+    <input type="text" id="stringa1" name="stringa1"><br><br>
+
+    <label for="stringa2">Stringa 2:</label>
+    <input type="text" id="stringa2" name="stringa2"><br><br>
+
+    <button onclick="verificaStringhe()">Verifica</button>
+
+    <p id="risultato"></p>
+
+    <script>
+        function verificaStringhe() {
+            // Ottieni i valori dalle input
+            var stringa1 = document.getElementById("stringa1").value;
+            var stringa2 = document.getElementById("stringa2").value;
+
+            // Controlla se entrambe le stringhe sono più lunghe di 8 caratteri
+            if (stringa1.length > 8 && stringa2.length > 8) {
+                document.getElementById("risultato").innerText = "True";
+            } else {
+                document.getElementById("risultato").innerText = "False";
+            }
+        }
+    </script>
+</body>
+</html>
