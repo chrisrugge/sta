@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifica Pari o Dispari</title>
+    <script>
+        function verificaPariODispari() {
+            var numero = document.getElementById("numero").value;
+            var messaggio = "";
+
+            // Verifica se il numero è pari o dispari
+            if (numero % 2 === 0) {
+                messaggio = "Il numero " + numero + " è pari.";
+            } else {
+                messaggio = "Il numero " + numero + " è dispari.";
+            }
+            
+            // Mostra il risultato
+            document.getElementById("risultato").innerText = messaggio;
+        }
+    </script>
+</head>
+<body>
+    <h2>Verifica Pari o Dispari</h2>
+    <p>Inserisci un numero:</p>
+    <input type="number" id="numero" placeholder="Inserisci un numero">
+    <button onclick="verificaPariODispari()">Verifica</button>
+    
+    <p id="risultato"></p>
+</body>
+</html>
+esercizio
