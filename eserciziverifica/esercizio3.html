@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saluto e Aspettativa di Vita</title>
+    <script>
+        function saluto() {
+            var nome = document.getElementById("nome").value;
+            var sesso = document.getElementById("sesso").value.toUpperCase();
+            var messaggio = "";
+            var aspettativaDiVita = "";
+            
+            if (sesso === "M") {
+                aspettativaDiVita = "80 anni";  // Aspettativa di vita media per un uomo in Italia
+                messaggio = "Ciao " + nome + ", la tua aspettativa di vita è di " + aspettativaDiVita + ".";
+            } else if (sesso === "F") {
+                aspettativaDiVita = "85 anni";  // Aspettativa di vita media per una donna in Italia
+                messaggio = "Ciao " + nome + ", la tua aspettativa di vita è di " + aspettativaDiVita + ".";
+            } else {
+                messaggio = "Sesso non valido. Inserisci 'M' per maschio o 'F' per femmina.";
+            }
+            
+            document.getElementById("risultato").innerText = messaggio;
+        }
+    </script>
+</head>
+<body>
+    <h2>Inserisci il tuo nome e sesso</h2>
+    <p>Nome:</p>
+    <input type="text" id="nome" placeholder="Inserisci il tuo nome">
+    <p>Sesso (M per maschio, F per femmina):</p>
+    <input type="text" id="sesso" placeholder="Inserisci M o F">
+    <button onclick="saluto()">Saluta e Calcola Aspettativa di Vita</button>
+    
+    <p id="risultato"></p>
+</body>
+</html>
