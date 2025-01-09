@@ -13,7 +13,6 @@
             let incremento = 0;
             let messaggio = "";
 
-            // Imposta il costo base per ciascuna città
             if (citta === "genova") {
                 costoBase = 5000;
             } else if (citta === "savona") {
@@ -26,7 +25,6 @@
                 alert;
             }
 
-            // Calcola l'incremento in base alla distanza dal mare
             if (distanza < 100) {
                 incremento = 3000;
             } else if (distanza >= 100 && distanza < 500) {
@@ -35,13 +33,10 @@
                 incremento = 500;
             }
 
-            // Calcola il valore immobiliare al metro quadro
             let costoAlMetroQuadro = costoBase + incremento;
 
-            // Calcola il valore totale della casa
             let valoreTotale = costoAlMetroQuadro * mq;
 
-            // Mostra il risultato
             messaggio = "Il costo al metro quadro per la città di " + citta.charAt(0).toUpperCase() + citta.slice(1) + " è di " + costoAlMetroQuadro + " euro.";
             messaggio += "<br>Il valore totale della casa di " + mq + " mq, a " + distanza + " km dal mare, è di " + valoreTotale + " euro.";
             document.getElementById("risultato").innerHTML = messaggio;
