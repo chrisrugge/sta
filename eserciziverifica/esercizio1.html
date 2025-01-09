@@ -7,13 +7,13 @@
 </head>
     <script>
   function verificaEta() {
-            var eta = parseInt(document.getElementById("eta").value);
-            var messaggio = "";
+            let eta = parseInt(document.getElementById("eta").value);
+            let messaggio = "";
             
             if (eta >= 18) {
                 messaggio = "Accedi al sistema";
             } else {
-                var anniMancanti = 18 - eta;
+                let anniMancanti = 18 - eta;
                 messaggio = "Puoi accedere al sistema tra " + anniMancanti + " anni";
             }
             
