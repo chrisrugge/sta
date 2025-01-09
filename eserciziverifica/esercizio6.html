@@ -10,7 +10,6 @@
             let costoMetroQuadro = 0;
             let messaggio = "";
 
-            // Verifica la distanza dal mare e assegna il costo al metro quadro
             if (distanza < 100) {
                 costoMetroQuadro = 10000; // Costo per distanza < 100 km
                 messaggio = "Il costo al metro quadro è di " + costoMetroQuadro + " euro.";
@@ -19,7 +18,6 @@
                 messaggio = "Il costo al metro quadro è di " + costoMetroQuadro + " euro.";
             }
 
-            // Mostra il risultato
             document.getElementById("risultato").innerText = messaggio;
         }
     </script>
