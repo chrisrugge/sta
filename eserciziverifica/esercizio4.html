@@ -12,13 +12,11 @@
             let annoCorrente = dataAttuale.getFullYear();
             let meseCorrente = dataAttuale.getMonth() + 1; // I mesi in JavaScript partono da 0, quindi sommiamo 1
 
-            // Calcolo dell'età
             let eta = annoCorrente - annoNascita;
             if (meseCorrente < mese) {
                 eta--; // Se non è ancora passato il mese di compleanno
             }
 
-            // Restituire i risultati
             let messaggio = "Il tuo mese di nascita è " + mese + ", e hai " + eta + " anni.";
             document.getElementById("risultato").innerText = messaggio;
         }
