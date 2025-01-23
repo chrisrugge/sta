@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricerca Ohm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .div {
+            margin: 20px 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .map {
+            width: 100%;
+            height: auto;
+        }
+        .app-container {
+            margin-top: 30px;
+            text-align: center;
+            padding: 20px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+        }
+        input {
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Legge di Ohm</h1>
+    <p>Studio della Legge di Ohm e Calcolatore per Resistenza, Tensione e Corrente</p>
+</header>
+
+<div class="container">
+    <div class="div/div">
+        <h2>Definizione della Legge di Ohm</h2>
+        <p>La legge di Ohm stabilisce che la corrente che attraversa un conduttore tra due punti è direttamente proporzionale alla tensione tra i due punti e inversamente proporzionale alla resistenza del conduttore. La formula della legge di Ohm è:</p>
+        <p><strong>V = I * R</strong>, dove:</p>
+        <ul>
+            <li>V è la tensione in Volt (V)</li>
+            <li>I è l'intensità di corrente in Ampere (A)</li>
+            <li>R è la resistenza in Ohm (Ω)</li>
+        </ul>
+    </div>
+
+    <div class="div/div">
+        <h2>Mappa Concettuale</h2>
+        <img class="map" src="foto.PNG" alt="Mappa Concettuale della Legge di Ohm">
+    </div>
+
+    <div class="div/div">
+        <h2>Breve Biografia di Georg Simon Ohm</h2>
+        <p>Georg Simon Ohm (1789-1854) fu un fisico tedesco noto per la formulazione della legge che porta il suo nome, la legge di Ohm. Questa legge ha rivoluzionato la comprensione dei fenomeni elettrici, contribuendo in modo fondamentale all'elettronica moderna. Ohm lavorò con circuiti elettrici e studiò il comportamento dei materiali conduttori. La sua scoperta si è rivelata essenziale per lo sviluppo della teoria elettrica.</p>
+        <img src="ohm.jpg" alt="Georg Simon Ohm" style="width: 200px; border-radius: 10px;">
+    </div>
+
+    <div class="app-container">
+        <h2>Calcolatore della Legge di Ohm</h2>
+        <p>Inserisci i valori di due variabili per calcolare la terza.</p>
+
+        <label for="tensione">Tensione (V):</label>
+        <input type="number" id="tensione" placeholder="Tensione in Volt">
+
+        <label for="corrente">Corrente (A):</label>
+        <input type="number" id="corrente" placeholder="Corrente in Ampere">
+
+        <label for="resistenza">Resistenza (Ω):</label>
+        <input type="number" id="resistenza" placeholder="Resistenza in Ohm">
+
+        <br><br>
+        <button onclick="calcola()">Calcola</button>
+
+        <h3 id="risultato"></h3>
+    </div>
+</div>
+
+<script>
+    function calcola() {
+        let tensione = document.getElementById('tensione').value;
+        let corrente = document.getElementById('corrente').value;
+        let resistenza = document.getElementById('resistenza').value;
+
+        if (tensione && corrente && !resistenza) {
+            
+            resistenza = tensione / corrente;
+            document.getElementById('risultato').innerHTML = "Resistenza (Ω): " + resistenza.toFixed(2);
+        } else if (corrente && resistenza && !tensione) {
+          
+            tensione = corrente * resistenza;
+            document.getElementById('risultato').innerHTML = "Tensione (V): " + tensione.toFixed(2);
+        } else if (tensione && resistenza && !corrente) {
+           
+            corrente = tensione / resistenza;
+            document.getElementById('risultato').innerHTML = "Corrente (A): " + corrente.toFixed(2);
+        } else {
+            document.getElementById('risultato').innerHTML = "Inserisci due valori per calcolare il terzo.";
+        }
+    }
+</script>
+
+</body>
+</html>
