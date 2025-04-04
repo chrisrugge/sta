@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolatore Dazi di Esportazione</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .table-container {
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .calculator-container {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        input[type="number"], input[type="button"] {
+            padding: 10px;
+            font-size: 1rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Calcolatore Dazi di Esportazione</h1>
+    </header>
+
+    <div class="content">
+        <div class="table-container">
+            <h2>Tabella Dazi per Paese</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Paese</th>
+                        <th>Dazio (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Italia</td>
+                        <td>5%</td>
+                    </tr>
+                    <tr>
+                        <td>Francia</td>
+                        <td>6%</td>
+                    </tr>
+                    <tr>
+                        <td>Germania</td>
+                        <td>7%</td>
+                    </tr>
+                    <tr>
+                        <td>Spagna</td>
+                        <td>4%</td>
+                    </tr>
+                    <tr>
+                        <td>Stati Uniti</td>
+                        <td>10%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="calculator-container">
+            <h3>Calcolatore Finanziario</h3>
+            <label for="costo">Costo del Prodotto (€):</label>
+            <input type="number" id="costo" placeholder="Inserisci il costo del prodotto">
+            
+            <label for="ricarico">Ricarico (€):</label>
+            <input type="number" id="ricarico" placeholder="Inserisci il ricarico">
+            
+            <label for="porcentaje">Percentuale (%):</label>
+            <input type="number" id="porcentaje" value="20" placeholder="Inserisci una percentuale">
+            
+            <input type="button" value="Calcola Valore Esportazione" onclick="calcolareEsportazione()">
+            <input type="button" value="Calcola Percentuale" onclick="calcolarePercentuale()">
+            
+            <div class="result">
+                <p id="risultatoEsportazione"></p>
+                <p id="risultatoPercentuale"></p>
+                <p id="risultatoDazio"></p>
+                <p id="risultatoConversione"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calcolareEsportazione() {
+            let costo = parseFloat(document.getElementById('costo').value);
+            let ricarico = parseFloat(document.getElementById('ricarico').value);
+
+            if (isNaN(costo) || isNaN(ricarico)) {
+                alert('Per favore, inserisci valori numerici validi.');
+                return;
+            }
+
+            let valoreEsportazione = costo + ricarico;
+            document.getElementById('risultatoEsportazione').innerText = 'Valore Esportazione: €' + valoreEsportazione.toFixed(2);
+        }
+        function calcolarePercentuale() {
+            let costo = parseFloat(document.getElementById('costo').value);
+            let ricarico = parseFloat(document.getElementById('ricarico').value);
+            let percentuale = parseFloat(document.getElementById('porcentaje').value);
+
+            if (isNaN(costo) || isNaN(ricarico) || isNaN(percentuale)) {
+                alert('Per favore, inserisci valori validi.');
+                return;
+            }
+
+            let valoreEsportazione = costo + ricarico;
+            let valorePercentuale = (valoreEsportazione * percentuale) / 100;
+            let dazio = valorePercentuale * 0.10;
+            let conversione = valorePercentuale * 1.10;
+
+            document.getElementById('risultatoPercentuale').innerText = 'Percentuale Calcolata: €' + valorePercentuale.toFixed(2);
+            document.getElementById('risultatoDazio').innerText = 'Dazio (10%): €' + dazio.toFixed(2);
+            document.getElementById('risultatoConversione').innerText = 'Valore in USD: $' + conversione.toFixed(2);
+        }
+    </script>
+</body>
+</html>
