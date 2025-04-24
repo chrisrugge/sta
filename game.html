@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Tempi di reazione</title>
+    <style>
+        .contenitore {
+            display: flex;
+            margin-top: 50px;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .color-button {
+            color: white;
+            width: 100px;
+            height: 100px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #titolo_game {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 20px;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="titolo_game">
+        Clicca sul bottone rosso
+    </div>
+
+    <div class="contenitore">
+        <button id="btn1" class="color-button"></button>
+        <button id="btn2" class="color-button"></button>
+        <button id="btn3" class="color-button"></button>
+        <button id="btn4" class="color-button"></button>
+    </div>
+
+    <script>
+        function cambiaColori() {
+            let colore = null;
+            let tempoRed = null;
+
+            const colors = ["red", "blue", "yellow", "green", "purple", "white", "black"];
+
+            let casuale = (Math.floor(Math.random()*4));
+            document.getElementById("btn1").style.backgroundColor = colors[casuale];
+
+            let casuale2 = (Math.floor(Math.random()*4));
+            document.getElementById("btn2").style.backgroundColor = colors[casuale2];
+
+            let casuale3 = (Math.floor(Math.random()*4));
+            document.getElementById("btn3").style.backgroundColor = colors[casuale3];
+
+            let casuale4 = (Math.floor(Math.random()*4));
+            document.getElementById("btn4").style.backgroundColor = colors[casuale4];
+
+            if(casuale === 0) {
+                tempoRed = Date.now();
+                console.log(tempoRed);
+
+            }
+
+        }
+    
+        // setInterval() ha come primo parametro la funzione che deve essere eseguita
+        // come secondo parametro indichiamo il tempo in millisecondi (ms) quando la funzione (primo parametro) viene eseguita
+        // 1000 ms = 1s
+        setInterval(cambiaColori, 1000);
+    </script>
+
+</body>
+</html>
